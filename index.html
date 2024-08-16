@@ -173,30 +173,12 @@
         .sort-button:hover, .reset-button:hover {
             background-color: #45a049;
         }
-        .save-button {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    gap: 5px;
-}
-.save-button:hover {
-    background-color: #0b79d0;
-}
-
     </style>
 </head>
 <body>
     <h1>Lista de Elementos</h1>
 
     <div class="controls">
-        <button class="save-button" id="saveButton">Guardar datos</button>
-
         <div class="switch-container">
             <label class="switch">
                 <input type="checkbox" id="filterJapan">
@@ -257,26 +239,43 @@
             let originalOrder = []; // Para almacenar el orden original
 
             function updateProgress() {
-    const totalItems = data.length;
-    const selectedGames = document.querySelectorAll('.joc:checked').length;
-    const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
+                const totalItems = data.length;
+                const selectedGames = document.querySelectorAll('.joc:checked').length;
+                const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
 
-    selectedGamesCount.textContent = selectedGames;
-    totalGamesCount.textContent = totalItems;
-    selectedBoxesCount.textContent = selectedBoxes;
-    totalBoxesCount.textContent = totalItems;
+                selectedGamesCount.textContent = selectedGames;
+                totalGamesCount.textContent = totalItems;
+                selectedBoxesCount.textContent = selectedBoxes;
+                totalBoxesCount.textContent = totalItems;
 
-    const gamesProgressPercent = (selectedGames / totalItems) * 100;
-    const boxesProgressPercent = (selectedBoxes / totalItems) * 100;
+                const gamesProgressPercent = (selectedGames / totalItems) * 100;
+                const boxesProgressPercent = (selectedBoxes / totalItems) * 100;
 
-    gamesProgressBar.style.width = `${gamesProgressPercent}%`;
-    boxesProgressBar.style.width = `${boxesProgressPercent}%`;
+                gamesProgressBar.style.width = `${gamesProgressPercent}%`;
+                boxesProgressBar.style.width = `${boxesProgressPercent}%`;
 
-    // Ocultar la barra si está en 0%
-    gamesProgressBar.style.visibility = gamesProgressPercent === 0 ? 'hidden' : 'visible';
-    boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
-}
+                // Ocultar la barra si está en 0%
+                gamesProgressBar.style.visibility = gamesProgressPercent === 0 ? 'hidden' : 'visible';
+                boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
+            }
 
+            function saveCheckboxState() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    localStorage.setItem(checkbox.id, checkbox.checked);
+                });
+            }
+
+            function loadCheckboxState() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    const savedState = localStorage.getItem(checkbox.id);
+                    if (savedState !== null) {
+                        checkbox.checked = JSON.parse(savedState);
+                    }
+                });
+                updateProgress(); // Asegúrate de actualizar el progreso al cargar el estado
+            }
 
             function renderItems(items) {
                 list.innerHTML = '';
@@ -346,82 +345,67 @@
 
                 // Añadir eventos a los checkboxes para actualizar la barra de progreso al hacer clic
                 document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
-                    checkbox.addEventListener('change', updateProgress);
+                    checkbox.addEventListener('change', () => {
+                        saveCheckboxState();
+                        updateProgress();
+                    });
                 });
-            }
-
-            function sortItemsByDate(items) {
-                return items.sort((a, b) => {
-                    const dateA = new Date(a.año);
-                    const dateB = new Date(b.año);
-                    return sortAsc ? dateA - dateB : dateB - dateA;
-                });
-            }
-
-            function resetItemsOrder() {
-                // Alterna entre el orden original y el orden inverso del JSON
-                let orderedItems = jsonOrderAsc ? originalOrder : originalOrder.slice().reverse();
-                jsonOrderAsc = !jsonOrderAsc;
-
-                // Aplicar filtros sobre el ordenado
-                let filteredItems = applyFilters(orderedItems);
-                renderItems(filteredItems);
-            }
-
-            function applyFilters(items = data) {
-                let filteredData = items;
-
-                if (filterJapanCheckbox.checked) {
-                    filteredData = filteredData.filter(item => item.region !== 'Japón');
-                }
-
-                if (filterEuropeCheckbox.checked) {
-                    filteredData = filteredData.filter(item => item.region !== 'Europa');
-                }
-
-                return filteredData;
             }
 
             function fetchData() {
-                fetch('data.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(jsonData => {
-                        data = jsonData;
-                        originalOrder = [...data]; // Guardar el orden original del JSON
-                        let filteredData = applyFilters(data);
-                        renderItems(filteredData); // Inicial render
-
-                        // Filtro por región
-                        filterJapanCheckbox.addEventListener('change', function () {
-                            renderItems(applyFilters(originalOrder));
-                        });
-                        filterEuropeCheckbox.addEventListener('change', function () {
-                            renderItems(applyFilters(originalOrder));
-                        });
-
-                        // Ordenar por fecha
-                        sortButton.addEventListener('click', function () {
-                            sortAsc = !sortAsc;
-                            renderItems(sortItemsByDate(applyFilters(originalOrder)));
-                            sortIcon.textContent = sortAsc ? '▲' : '▼';
-                        });
-
-                        // Resetear a orden del JSON (y alternar entre ascendente/descendente)
-                        resetButton.addEventListener('click', function () {
-                            resetItemsOrder();
-                            resetIcon.textContent = jsonOrderAsc ? '▲' : '▼';
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
+                fetch('https://api.jsonbin.io/b/63d4fa539d87a0001c8d1d4f') // URL del bin de JSONbin.io
+                    .then(response => response.json())
+                    .then(dataFromAPI => {
+                        data = dataFromAPI;
+                        originalOrder = [...data];
+                        renderItems(data);
                     });
             }
 
+            function applyFilters() {
+                const filteredData = data.filter(item => {
+                    if (filterJapanCheckbox.checked && item.region === 'Japón') {
+                        return false;
+                    }
+                    if (filterEuropeCheckbox.checked && item.region === 'Europa') {
+                        return false;
+                    }
+                    return true;
+                });
+                renderItems(filteredData);
+            }
+
+            function sortItems() {
+                if (sortAsc) {
+                    data.sort((a, b) => new Date(a.año) - new Date(b.año));
+                    sortIcon.textContent = '▲'; // Orden ascendente
+                } else {
+                    data.sort((a, b) => new Date(b.año) - new Date(a.año));
+                    sortIcon.textContent = '▼'; // Orden descendente
+                }
+                renderItems(data);
+                sortAsc = !sortAsc;
+            }
+
+            function resetSorting() {
+                data = [...originalOrder];
+                jsonOrderAsc = !jsonOrderAsc;
+                renderItems(data);
+                resetIcon.textContent = jsonOrderAsc ? '▲' : '▼'; // Orden ascendente o descendente
+            }
+
+            filterJapanCheckbox.addEventListener('change', applyFilters);
+            filterEuropeCheckbox.addEventListener('change', applyFilters);
+            sortButton.addEventListener('click', sortItems);
+            resetButton.addEventListener('click', resetSorting);
+
+            document.addEventListener('change', function (event) {
+                if (event.target.type === 'checkbox') {
+                    saveCheckboxState();
+                }
+            });
+
+            loadCheckboxState();
             fetchData();
         });
     </script>
