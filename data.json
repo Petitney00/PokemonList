@@ -1,0 +1,1041 @@
+[
+    {
+        "nombre": "Pokémon Rojo Japonés",
+        "link": "Pokémon_Rojo_(Japón).png",
+        "region": "Japón",
+        "año": "1996-02-27"
+    },
+    {
+        "nombre": "Pokémon Verde Japonés",
+        "link": "Pokémon_Verde_(Japón).png",
+        "region": "Japón",
+        "año": "1996-02-27"
+    },
+    {
+        "nombre": "Pokémon Azul Japonés",
+        "link": "Pokemon_Azul_(Japón).png",
+        "region": "Japón",
+        "año": "1996-10-15"
+    },
+    {
+        "nombre": "Pokémon Rojo",
+        "link": "Pokémon_Rojo_(Europa).jpg",
+        "region": "Europa",
+        "año": "1999-10-05"
+    },
+    {
+        "nombre": "Pokémon Azul",
+        "link": "Pokémon_Azul_(Europa).jpg",
+        "region": "Europa",
+        "año": "1999-10-05"
+    },
+    {
+        "nombre": "Pokémon Amarillo",
+        "link": "Pokémon_Amarillo_(Europa).png",
+        "region": "Europa",
+        "año": "2000-06-16"
+    },
+    {
+        "nombre": "Pokémon Amarillo Japonés",
+        "link": "Pokémon_Amarillo_(Japón).jpg",
+        "region": "Japón",
+        "año": "1998-09-12"
+    },
+    {
+        "nombre": "Pokémon Oro",
+        "link": "Pokemon_Edición_Oro_(Europa).jpg",
+        "region": "Europa",
+        "año": "2001-04-06"
+    },
+    {
+        "nombre": "Pokémon Plata",
+        "link": "Pokemon_Edición_Plata_(Europa).jpg",
+        "region": "Europa",
+        "año": "2001-04-06"
+    },
+    {
+        "nombre": "Pokémon Oro Japonés",
+        "link": "Pokemon_Oro_(Japones).webp",
+        "region": "Japón",
+        "año": "1999-11-21"
+    },
+    {
+        "nombre": "Pokémon Plata Japonés",
+        "link": "Pokemon_Silver_(Japanese).png",
+        "region": "Japón",
+        "año": "1999-11-21"
+    },
+    {
+        "nombre": "Pokémon Cristal",
+        "link": "Pokemon_Edición_Cristal_(Europa).jpg",
+        "region": "Europa",
+        "año": "2001-11-02"
+    },
+    {
+        "nombre": "Pokémon Cristal Japonés",
+        "link": "Pokemon_Edición_Cristal_(Japones).jpg",
+        "region": "Japón",
+        "año": "2000-12-14"
+    },
+    {
+        "nombre": "Pokémon Rubí",
+        "link": "Pokémon_Rubí_(Europa).png",
+        "region": "Europa",
+        "año": "2003-07-25"
+    },
+    {
+        "nombre": "Pokémon Zafiro",
+        "link": "Pokémon_Zafiro_(Europa).png",
+        "region": "Europa",
+        "año": "2003-07-25"
+    },
+    {
+        "nombre": "Pokémon Rubí Japonés",
+        "link": "Pokemon_Ruby_(Japones).png",
+        "region": "Japón",
+        "año": "2002-11-21"
+    },
+    {
+        "nombre": "Pokémon Zafiro Japonés",
+        "link": "Pokémon_Zafiro_(Japones).png",
+        "region": "Japón",
+        "año": "2002-11-21"
+    },
+    {
+        "nombre": "Pokémon Rojo Fuego",
+        "link": "Pokémon_Rojo_Fuego_(Europa).png",
+        "region": "Europa",
+        "año": "2004-10-01"
+    },
+    {
+        "nombre": "Pokémon Verde Hoja",
+        "link": "Pokémon_Verde_Hoja_(Europa).png",
+        "region": "Europa",
+        "año": "2004-10-01"
+    },
+    {
+        "nombre": "Pokémon Rojo Fuego Japonés",
+        "link": "Pokémon_Rojo_Fuego_(Japones).png",
+        "region": "Japón",
+        "año": "2004-01-29"
+    },
+    {
+        "nombre": "Pokémon Verde Hoja Japonés",
+        "link": "Pokémon_Verde_Hoja_(Japones).png",
+        "region": "Japón",
+        "año": "2004-01-29"
+    },
+    {
+        "nombre": "Pokémon Esmeralda",
+        "link": "Pokémon_Esmeralda_(Europa).jpg",
+        "region": "Europa",
+        "año": "2005-10-21"
+    },
+    {
+        "nombre": "Pokémon Esmeralda Japonés",
+        "link": "Pokémon_Esmeralda_(Japones).png",
+        "region": "Japón",
+        "año": "2004-09-16"
+    },
+    {
+        "nombre": "Pokémon Diamante",
+        "link": "Pokémon_Diamante_(Europa).png",
+        "region": "Europa",
+        "año": "2007-07-27"
+    },
+    {
+        "nombre": "Pokémon Perla",
+        "link": "Pokémon_Perla_(Europa).png",
+        "region": "Europa",
+        "año": "2007-07-27"
+    },
+    {
+        "nombre": "Pokémon Diamante Japonés",
+        "link": "Pokemon_Diamante_(Japones).webp",
+        "region": "Japón",
+        "año": "2006-09-28"
+    },
+    {
+        "nombre": "Pokémon Perla Japonés",
+        "link": "Pokemon_Perla_(Japones).webp",
+        "region": "Japón",
+        "año": "2006-09-28"
+    },
+    {
+        "nombre": "Pokémon Platino",
+        "link": "Pokémon_Platino_(Europa).png",
+        "region": "Europa",
+        "año": "2009-05-22"
+    },
+    {
+        "nombre": "Pokémon Platino Japonés",
+        "link": "Pokémon_Platino_(Japones).png",
+        "region": "Japón",
+        "año": "2008-09-13"
+    },
+    {
+        "nombre": "Pokémon HeartGold",
+        "link": "Pokémon_Oro_HeartGold_(Europa).png",
+        "region": "Europa",
+        "año": "2010-03-26"
+    },
+    {
+        "nombre": "Pokémon SoulSilver",
+        "link": "Pokémon_Plata_SoulSilver_(Europa).jpg",
+        "region": "Europa",
+        "año": "2010-03-26"
+    },
+    {
+        "nombre": "Pokémon HeartGold Japonés",
+        "link": "Pokemon_HeartGold_(Japones).webp",
+        "region": "Japón",
+        "año": "2009-09-12"
+    },
+    {
+        "nombre": "Pokémon SoulSilver Japonés",
+        "link": "Pokemon_SoulSilver_(Japones).webp",
+        "region": "Japón",
+        "año": "2009-09-12"
+    },
+    {
+        "nombre": "Pokémon Negro",
+        "link": "Pokémon_Edición_Negra_(Europa).png",
+        "region": "Europa",
+        "año": "2011-03-04"
+    },
+    {
+        "nombre": "Pokémon Blanco",
+        "link": "Pokémon_Edición_Blanca_(Europa).png",
+        "region": "Europa",
+        "año": "2011-03-04"
+    },
+    {
+        "nombre": "Pokémon Negro Japonés",
+        "link": "Pokemon_Black_(Japones).webp",
+        "region": "Japón",
+        "año": "2010-09-18"
+    },
+    {
+        "nombre": "Pokémon Blanco Japonés",
+        "link": "Pokemon_White_(Japones).webp",
+        "region": "Japón",
+        "año": "2010-09-18"
+    },
+    {
+        "nombre": "Pokémon Negro 2",
+        "link": "Pokémon_Negro_2_(Europa).png",
+        "region": "Europa",
+        "año": "2012-10-12"
+    },
+    {
+        "nombre": "Pokémon Blanco 2",
+        "link": "Pokémon_Blanco_2_(Europa).png",
+        "region": "Europa",
+        "año": "2012-10-12"
+    },
+    {
+        "nombre": "Pokémon Negro 2 Japonés",
+        "link": "Pokemon_Black_2.webp",
+        "region": "Japón",
+        "año": "2012-06-23"
+    },
+    {
+        "nombre": "Pokémon Blanco 2 Japonés",
+        "link": "Pokemon_White_2_(Japones).webp",
+        "region": "Japón",
+        "año": "2012-06-23"
+    },
+    {
+        "nombre": "Pokémon X",
+        "link": "Pokémon_X_(Europa).png",
+        "region": "Europa",
+        "año": "2013-10-12"
+    },
+    {
+        "nombre": "Pokémon Y",
+        "link": "Pokémon_Y_(Europa).png",
+        "region": "Europa",
+        "año": "2013-10-12"
+    },
+    {
+        "nombre": "Pokémon X Japonés",
+        "link": "Pokemon_X_(Japones).webp",
+        "region": "Japón",
+        "año": "2013-10-12"
+    },
+    {
+        "nombre": "Pokémon Y Japonés",
+        "link": "Pokemon_Y_(Japones).webp",
+        "region": "Japón",
+        "año": "2013-10-12"
+    },
+    {
+        "nombre": "Pokémon Rubí Omega",
+        "link": "Pokémon_Rubí_Omega_(Europa).png",
+        "region": "Europa",
+        "año": "2014-11-28"
+    },
+    {
+        "nombre": "Pokémon Zafiro Alfa",
+        "link": "Pokémon_Zafiro_Alfa_(Europa).png",
+        "region": "Europa",
+        "año": "2014-11-28"
+    },
+    {
+        "nombre": "Pokémon Rubí Omega Japonés",
+        "link": "Pokemon_OmegaRuby_(Japones).webp",
+        "region": "Japón",
+        "año": "2014-11-21"
+    },
+    {
+        "nombre": "Pokémon Zafiro Alfa Japonés",
+        "link": "Pokemon_AlphaSapphire_(Japones).webp",
+        "region": "Japón",
+        "año": "2014-11-21"
+    },
+    {
+        "nombre": "Pokémon Sol",
+        "link": "Pokémon_Sol_(Europa).png",
+        "region": "Europa",
+        "año": "2016-11-23"
+    },
+    {
+        "nombre": "Pokémon Luna",
+        "link": "Pokémon_Luna_(Europa).png",
+        "region": "Europa",
+        "año": "2016-11-23"
+    },
+    {
+        "nombre": "Pokémon Sol Japonés",
+        "link": "Pokemon_Sun_(Japones).webp",
+        "region": "Japón",
+        "año": "2016-11-18"
+    },
+    {
+        "nombre": "Pokémon Luna Japonés",
+        "link": "Pokemon_Moon_(Japones).webp",
+        "region": "Japón",
+        "año": "2016-11-18"
+    },
+    {
+        "nombre": "Pokémon Ultrasol",
+        "link": "Pokémon_Ultrasol_(Europa).png",
+        "region": "Europa",
+        "año": "2017-11-17"
+    },
+    {
+        "nombre": "Pokémon Ultraluna",
+        "link": "Pokémon_Ultraluna_(Europa).png",
+        "region": "Europa",
+        "año": "2017-11-17"
+    },
+    {
+        "nombre": "Pokémon Ultrasol Japonés",
+        "link": "Pokémon_Ultrasol_(Japones).png",
+        "region": "Japón",
+        "año": "2017-11-17"
+    },
+    {
+        "nombre": "Pokémon Ultraluna Japonés",
+        "link": "Pokémon_Ultraluna_(Japones).png",
+        "region": "Japón",
+        "año": "2017-11-17"
+    },
+    {
+        "nombre": "Pokémon Let’s Go, Pikachu!",
+        "link": "Pokémon_Let's_Go_Pikachu_(Europa).png",
+        "region": "Europa",
+        "año": "2018-11-16"
+    },
+    {
+        "nombre": "Pokémon Let’s Go, Eevee!",
+        "link": "Pokémon_Let's_Go_Eevee_(Europa).png",
+        "region": "Europa",
+        "año": "2018-11-16"
+    },
+    {
+        "nombre": "Pokémon Let’s Go, Pikachu! Japonés",
+        "link": "Pokemon_Lets_Go_Pikachu_(Japones).jpg",
+        "region": "Japón",
+        "año": "2018-11-16"
+    },
+    {
+        "nombre": "Pokémon Let’s Go, Eevee! Japonés",
+        "link": "Pokemon_Lets_Go_Eevee_(Japones).webp",
+        "region": "Japón",
+        "año": "2018-11-16"
+    },
+    {
+        "nombre": "Pokémon Espada",
+        "link": "Pokémon_Espada_(Europa).png",
+        "region": "Europa",
+        "año": "2019-11-15"
+    },
+    {
+        "nombre": "Pokémon Escudo",
+        "link": "Pokémon_Escudo_(Europa).png",
+        "region": "Europa",
+        "año": "2019-11-15"
+    },
+    {
+        "nombre": "Pokémon Espada Japonés",
+        "link": "Pokémon_Espada_(Japones).png",
+        "region": "Japón",
+        "año": "2019-11-15"
+    },
+    {
+        "nombre": "Pokémon Escudo Japonés",
+        "link": "Pokemon_Escudo_(Japones).jpg",
+        "region": "Japón",
+        "año": "2019-11-15"
+    },
+    {
+        "nombre": "Pokémon Diamante Brillante",
+        "link": "Pokémon_Diamante_Brillante_(Europa).png",
+        "region": "Europa",
+        "año": "2021-11-19"
+    },
+    {
+        "nombre": "Pokémon Perla Reluciente",
+        "link": "Pokémon_Perla_Reluciente_(Europa).png",
+        "region": "Europa",
+        "año": "2021-11-19"
+    },
+    {
+        "nombre": "Pokémon Diamante Brillante Japonés",
+        "link": "Pokemon_Diamante_Brillante_(Japones).webp",
+        "region": "Japón",
+        "año": "2021-11-19"
+    },
+    {
+        "nombre": "Pokémon Perla Reluciente Japonés",
+        "link": "Pokemon_Perla_Reluciente_(Japones).jpg",
+        "region": "Japón",
+        "año": "2021-11-19"
+    },
+    {
+        "nombre": "Leyendas Pokémon: Arceus",
+        "link": "Leyendas_Pokémon_Arceus_(Europa).png",
+        "region": "Europa",
+        "año": "2022-01-28"
+    },
+    {
+        "nombre": "Leyendas Pokémon: Arceus Japonés",
+        "link": "Leyendas_Pokémon_Arceus_(Japones).png",
+        "region": "Japón",
+        "año": "2022-01-28"
+    },
+    {
+        "nombre": "Pokémon Escarlata",
+        "link": "Pokémon_Escarlata_(Europa).png",
+        "region": "Europa",
+        "año": "2022-11-18"
+    },
+    {
+        "nombre": "Pokémon Púrpura",
+        "link": "Pokémon_Púrpura_(Europa).png",
+        "region": "Europa",
+        "año": "2022-11-18"
+    },
+    {
+        "nombre": "Pokémon Escarlata Japonés",
+        "link": "Pokemon_Scarlet_(Japones).webp",
+        "region": "Japón",
+        "año": "2022-11-18"
+    },
+    {
+        "nombre": "Pokémon Púrpura Japonés",
+        "link": "Pokemon_Violet_(Japones).webp",
+        "region": "Japón",
+        "año": "2022-11-18"
+    },
+
+
+
+
+
+    {
+        "nombre": "Pokémon Mundo misterioso: Equipo de rescate rojo",
+        "link": "Pokémon_Mundo_Misterioso_equipo_de_rescate_rojo_(Europa).png",
+        "region": "Europa",
+        "año": "2006-11-10"
+    },
+        {
+        "nombre": "Pokémon Mundo misterioso: Equipo de rescate azul",
+        "link": "Pokémon_Mundo_Misterioso_equipo_de_rescate_azul_(Europa).png",
+        "region": "Europa",
+        "año": "2006-11-10"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Equipo de rescate rojo Japonés",
+        "link": "Pokemon_Mystery_Dungeon_Red_Rescue_Team_(Japones).jfif",
+        "region": "Japón",
+        "año": "2005-11-17"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Equipo de rescate azul Japonés",
+        "link": "Pokemon_Mistery_Dungeon_Blue_Rescue_Team_(Japones).jpg",
+        "region": "Japón",
+        "año": "2005-11-17"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores del tiempo",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_del_Tiempo_(Europa).png",
+        "region": "Europa",
+        "año": "2008-06-04"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores de la oscuridad",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_de_la_Oscuridad_(Europa).png",
+        "region": "Europa",
+        "año": "2008-06-04"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores del tiempo Japonés",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_del_Tiempo_(Japones).png",
+        "region": "Japón",
+        "año": "2007-09-13"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores de la oscuridad Japonés",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_de_la_Oscuridad_(Japones).png",
+        "region": "Japón",
+        "año": "2007-09-13"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores del cielo",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_del_cielo_(Europa).jpg",
+        "region": "Europa",
+        "año": "2009-11-20"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Exploradores del cielo Japonés",
+        "link": "Pokémon_Mundo_Misterioso_Exploradores_del_cielo_(Japones).jfif",
+        "region": "Japón",
+        "año": "2009-04-18"
+    },   
+    {
+        "nombre": "Pokémon Mundo misterioso: Portales al infinito",
+        "link": "Pokémon_MM_Portales_al_Infinito_(Europa).png",
+        "region": "Europa",
+        "año": "2013-05-17"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: Portales al infinito Japonés",
+        "link": "Pokémon_Mundo_misterioso_Portales_al_infinito_(Japones).png",
+        "region": "Japón",
+        "año": "2012-11-23"
+    },
+    {
+        "nombre": "Pokémon Mundo megamisterioso",
+        "link": "Pokémon_mundo_megamisterioso_(Europa).png",
+        "region": "Europa",
+        "año": "2016-02-19"
+    },
+    {
+        "nombre": "Pokémon Mundo megamisterioso Japonés",
+        "link": "Pokémon_Super_Mystery_Dungeon_(Japones).jfif",
+        "region": "Japón",
+        "año": "2015-09-17"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: equipo de rescate DX",
+        "link": "Pokémon_Mundo_misterioso_equipo_de_rescate_DX_(Europa).jpg",
+        "region": "Europa",
+        "año": "2020-03-06"
+    },
+    {
+        "nombre": "Pokémon Mundo misterioso: equipo de rescate DX Japonés",
+        "link": "Pokémon_Mystery_Dungeon_Rescue_Team_DX_(Japones).jfif",
+        "region": "Japón",
+        "año": "2020-03-06"
+    },
+    {
+        "nombre": "Pokémon Ranger",
+        "link": "PokemonRanger_(Europa).jpg",
+        "region": "Europa",
+        "año": "2007-04-13"
+    },
+    {
+        "nombre": "Pokémon Ranger Japonés",
+        "link": "Pokemon_Ranger_(Japones).jfif",
+        "region": "Japón",
+        "año": "2006-03-23"
+    },
+    {
+        "nombre": "Pokémon Ranger: Sombras de Almia",
+        "link": "Pokémon_Ranger_Sombras_de_Almia_(Europa).png",
+        "region": "Europa",
+        "año": "2008-11-21"
+    },
+    {
+        "nombre": "Pokémon Ranger: Sombras de Almia Japonés",
+        "link": "Pokémon_Ranger_Shadows_of_Almia_(Japones).jfif",
+        "region": "Japón",
+        "año": "2008-03-20"
+    },
+    {
+        "nombre": "Pokémon Ranger: Trazos de luz",
+        "link": "Pokemon_Ranger_Trazos_de_luz_(Europa).png",
+        "region": "Europa",
+        "año": "2010-11-05"
+    },
+    {
+        "nombre": "Pokémon Ranger: Trazos de luz Japonés",
+        "link": "Pokemon_Ranger_Trazos_de_luz_(Japones).jfif",
+        "region": "Japón",
+        "año": "2010-03-06"
+    },
+    {
+        "nombre": "Super Pokémon Rumble",
+        "link": "Super_Pokémon_Rumble_(Europa).jpg",
+        "region": "Europa",
+        "año": "2011-12-02"
+    },
+    {
+        "nombre": "Super Pokémon Rumble Japonés",
+        "link": "Super_Pokémon_Rumble_(Japones).jfif",
+        "region": "Japón",
+        "año": "2011-08-11"
+    },
+    {
+        "nombre": "Pokémon Rumble World",
+        "link": "Pokemon_Rumble_World_(Europa).png",
+        "region": "Europa",
+        "año": "2016-01-22"
+    },
+    {
+        "nombre": "Pokémon Rumble World Japonés",
+        "link": "Pokemon_Rumble_World_(Japones).webp",
+        "region": "Japón",
+        "año": "2015-04-08"
+    },
+    {
+        "nombre": "Detective Pikachu",
+        "link": "Detective_Pikachu_(Europa).png",
+        "region": "Europa",
+        "año": "2018-03-23"
+    },
+    {
+        "nombre": "Detective Pikachu Japonés",
+        "link": "Detective_Pikachu_(Japones).webp",
+        "region": "Japón",
+        "año": "2018-03-23"
+    },
+    {
+        "nombre": "Detective Pikachu: El regreso",
+        "link": "Detective_Pikachu_El_regreso_(Europa).jpg",
+        "region": "Europa",
+        "año": "2023-10-06"
+    },
+    {
+        "nombre": "Detective Pikachu: El regreso Japonés",
+        "link": "Detective_Pikachu_El_regreso_(Japones).webp",
+        "region": "Japón",
+        "año": "2023-10-06"
+    },
+    {
+        "nombre": "Pokémon Pinball",
+        "link": "Pokémon_Pinball_(Europa).png",
+        "region": "Europa",
+        "año": "2000-10-06"
+    },
+    {
+        "nombre": "Pokémon Pinball Japonés",
+        "link": "Pokemon_Pinball_(Japones).jpg",
+        "region": "Japón",
+        "año": "1999-04-14"
+    },
+    {
+        "nombre": "Pokémon Pinball: Rubí y Zafiro",
+        "link": "Pokémon_Pinball_Rubí_y_Zafiro_(Europa).png",
+        "region": "Europa",
+        "año": "2003-11-14"
+    },
+    {
+        "nombre": "Pokémon Pinball: Rubí y Zafiro Japonés",
+        "link": "Pokemon_Pinball2_(Japones).jpg",
+        "region": "Japón",
+        "año": "2003-08-01"
+    },
+    {
+        "nombre": "Pocket Monster Stadium",
+        "link": "Pokemon_Stadium_(Japones).jpg",
+        "region": "Japón",
+        "año": "1998-08-01"
+    },
+    {
+        "nombre": "Pocket Monster Stadium 2",
+        "link": "Pocket_Monsters_Stadium_2.webp",
+        "region": "Japón",
+        "año": "1999-04-30"
+    },
+    {
+        "nombre": "Pokémon Stadium",
+        "link": "Pokémon_Stadium_(Europa).jpg",
+        "region": "Europa",
+        "año": "2000-04-07"
+    },
+    {
+        "nombre": "Pokémon Stadium 2",
+        "link": "Pokémon_Stadium_2_(Europa).jpg",
+        "region": "Europa",
+        "año": "2001-10-10"
+    },
+    {
+        "nombre": "Pokémon Stadium Oro Y Plata Japonés",
+        "link": "Pokémon_Stadium_Oro_Y_Plata_(Japonés).jpg",
+        "region": "Japón",
+        "año": "2000-12-14"
+    },
+    {
+        "nombre": "Pokémon Colosseum",
+        "link": "Pokémon_Colosseum_(Europa).jpg",
+        "region": "Europa",
+        "año": "2004-05-14"
+    },
+    {
+        "nombre": "Pokémon Colosseum Japonés",
+        "link": "Colosseum_(Japones).png",
+        "region": "Japón",
+        "año": "2003-11-21"
+    },
+    {
+        "nombre": "Pokémon XD",
+        "link": "Pokémon_XD_Gale_of_Darkness_(Europa).jpg",
+        "region": "Europa",
+        "año": "2005-11-18"
+    },
+    {
+        "nombre": "Pokémon XD Japonés",
+        "link": "Pokemon_XD_(Japones).jfif",
+        "region": "Japón",
+        "año": "2005-08-04"
+    },
+    {
+        "nombre": "Pokémon Battle Revolution",
+        "link": "Pokémon_Battle_Revolution_(Europa).png",
+        "region": "Europa",
+        "año": "2007-12-07"
+    },
+    {
+        "nombre": "Pokémon Battle Revolution Japonés",
+        "link": "Pokemon_Battle_Revolution_(Japones).jfif",
+        "region": "Japón",
+        "año": "2006-12-14"
+    },
+    {
+        "nombre": "Pokkén Tournament",
+        "link": "Pokkén_Tournament_(Europa).png",
+        "region": "Europa",
+        "año": "2016-03-18"
+    },
+    {
+        "nombre": "Pokkén Tournament Japonés",
+        "link": "Pokken_Tournament_(Japones).webp",
+        "region": "Japón",
+        "año": "2015-07-16"
+    },
+    {
+        "nombre": "Pokkén Tournament DX",
+        "link": "Pokkén_Tournament_DX_(Europa).png",
+        "region": "Europa",
+        "año": "2017-09-22"
+    },
+    {
+        "nombre": "Pokkén Tournament DX Japonés",
+        "link": "Pokken_DX_(Japones).webp",
+        "region": "Japón",
+        "año": "2017-09-22"
+    },
+    {
+        "nombre": "Hey You, Pikachu!",
+        "link": "Hey_You,_Pikachu!_(Europa).jpg",
+        "region": "Europa",
+        "año": "2000-11-06"
+    },
+    {
+        "nombre": "Hey You, Pikachu! Japonés",
+        "link": "Hey_You,_Pikachu!_(Japones).jfif",
+        "region": "Japón",
+        "año": "1998-12-12"
+    },
+    {
+        "nombre": "Pokémon Channel",
+        "link": "Pokemon_Channel_(Europa).jpg",
+        "region": "Europa",
+        "año": "2004-04-02"
+    },
+    {
+        "nombre": "Pokémon Channel Japonés",
+        "link": "Pokemon_Channel_(Japones).jpg",
+        "region": "Japón",
+        "año": "2003-07-18"
+    },
+    {
+        "nombre": "Pokémon Dash",
+        "link": "Pokémon_Dash_(Europa).png",
+        "region": "Europa",
+        "año": "2005-03-11"
+    },
+    {
+        "nombre": "Pokémon Dash Japonés",
+        "link": "Pokemon_Dash_(Japones).png",
+        "region": "Japón",
+        "año": "2004-12-02"
+    },
+    {
+        "nombre": "PokéPark Wii: La gran aventura de Pikachu",
+        "link": "PokéPark_Wii-_La_gran_aventura_de_Pikachu_(Europa).png",
+        "region": "Europa",
+        "año": "2010-07-09"
+    },
+    {
+        "nombre": "PokéPark Wii: La gran aventura de Pikachu Japonés",
+        "link": "PokéPark_Wii-_La_gran_aventura_de_Pikachu_(Japones).webp",
+        "region": "Japón",
+        "año": "2009-12-05"
+    },
+    {
+        "nombre": "Poképark 2: Un mundo de ilusiones",
+        "link": "Poképark_2_Más_allá_del_mundo_(Europa).png",
+        "region": "Europa",
+        "año": "2012-03-23"
+    },
+    {
+        "nombre": "Poképark 2: Un mundo de ilusiones Japonés",
+        "link": "PokePark_2_Wonders_Beyond_(Japones).webp",
+        "region": "Japón",
+        "año": "2011-11-12"
+    },
+    {
+        "nombre": "Pokémon Trading Card Game",
+        "link": "Pokémon_Trading_Card_Game_(Europa).png",
+        "region": "Europa",
+        "año": "2000-12-08"
+    },
+    {
+        "nombre": "Pokémon Trading Card Game",
+        "link": "Pokemon_Trading_Card_Game_(Japones).webp",
+        "region": "Japón",
+        "año": "1998-12-18"
+    },
+    {
+        "nombre": "Pokémon Card GB2: GR-dan Sanjō!",
+        "link": "Pokémon_Trading_Card_Game_2_(Japones).jpg",
+        "region": "Japón",
+        "año": "2001-03-28"
+    },
+    {
+        "nombre": "Pokémon Card Game: Asobikata DS",
+        "link": "TCG_How_to_play_DSPokémon Card Game_Asobikata DS_(Japones).jpg",
+        "region": "Japón",
+        "año": "2011-08-05"
+    },
+    {
+        "nombre": "Pokémon Snap",
+        "link": "Pokemon_Snap_(Europa).png",
+        "region": "Europa",
+        "año": "2000-09-15"
+    },
+    {
+        "nombre": "Pokémon Snap Japonés",
+        "link": "Pokemon_Snap_(japones).webp",
+        "region": "Japón",
+        "año": "1999-03-21"
+    },
+    {
+        "nombre": "New Pokémon Snap",
+        "link": "New_Pokémon_Snap_(Europa).png",
+        "region": "Europa",
+        "año": "2021-04-30"
+    },
+    {
+        "nombre": "New Pokémon Snap Japonés",
+        "link": "New_Pokémon_Snap_(Japones).png",
+        "region": "Japón",
+        "año": "2021-04-30"
+    },
+    {
+        "nombre": "Pokémon Puzzle League",
+        "link": "Pokémon_Puzzle_League_(Europa).png",
+        "region": "Europa",
+        "año": "2001-03-16"
+    },
+    {
+        "nombre": "Pokémon Puzzle Challenge",
+        "link": "Puzzlechallenge_(Europa).png",
+        "region": "Europa",
+        "año": "2001-07-15"
+    },
+    {
+        "nombre": "Pokémon Puzzle Challenge Japonés",
+        "link": "Pokemon_Puzzle_Chalengue_(Japones).jpg",
+        "region": "Japón",
+        "año": "2000-09-21"
+    },
+    {
+        "nombre": "Pokémon Link!",
+        "link": "Pokémon_Link!_(Europa).png",
+        "region": "Europa",
+        "año": "2006-05-05"
+    },
+    {
+        "nombre": "Pokémon Link! Japonés",
+        "link": "Pokemon_Trozei_(Japones).png",
+        "region": "Japón",
+        "año": "2005-10-20"
+    },
+    {
+        "nombre": "Pokémon Box: Rubí y Zafiro",
+        "link": "Pokemon_Box_(Europa).png",
+        "region": "Europa",
+        "año": "2004-05-14"
+    },
+    {
+        "nombre": "Pokémon Box: Rubí y Zafiro Japonés",
+        "link": "Pokemon_Box_(Japones).jpg",
+        "region": "Japón",
+        "año": "2003-05-30"
+    },
+    {
+        "nombre": "Aprende con Pokémon: Aventura entre las teclas",
+        "link": "Aventura_entre_las_teclas_(Europa).png",
+        "region": "Europa",
+        "año": "2012-09-21"
+    },
+    {
+        "nombre": "Aprende con Pokémon: Aventura entre las teclas Japonés",
+        "link": "Aventura_entre_las_teclas_(Japones).jpg",
+        "region": "Japón",
+        "año": "2011-04-21"
+    },
+    {
+        "nombre": "Pokémon Art Academy",
+        "link": "Pokémon_Art_Academy_(Europa).png",
+        "region": "Europa",
+        "año": "2014-07-04"
+    },
+    {
+        "nombre": "Pokémon Art Academy",
+        "link": "Pokémon_Art_Academy_(Japones).jfif",
+        "region": "Japón",
+        "año": "2014-06-19"
+    },
+    {
+        "nombre": "Pokémon Conquest",
+        "link": "Pokémon_Conquest_(Europa).png",
+        "region": "Europa",
+        "año": "2012-07-27"
+    },
+    {
+        "nombre": "Pokémon Conquest",
+        "link": "Pokemon-Conquest_(Japones).jpg",
+        "region": "Japón",
+        "año": "2012-03-17"
+    },
+    {
+        "nombre": "Pokémon Party mini",
+        "link": "Pokemon_Party_mini_(Europa).jpg",
+        "region": "Europa",
+        "año": "2002-03-15"
+    },
+    {
+        "nombre": "Pokémon Party mini Japonés",
+        "link": "Party_Mini_(Japones).png",
+        "region": "Japón",
+        "año": "2001-12-14"
+    },
+    {
+        "nombre": "Pokémon Zandy Cards",
+        "link": "Zany_Cards_(Europa).png",
+        "region": "Europa",
+        "año": "2002-03-15"
+    },
+    {
+        "nombre": "Pokémon Zandy Cards Japonés",
+        "link": "Zany_Cards_(Japones).jfif",
+        "region": "Japón",
+        "año": "2001-12-14"
+    },
+    {
+        "nombre": "Pokémon Zandy Cards",
+        "link": "Pinball_mini(Europa).png",
+        "region": "Europa",
+        "año": "2002-03-15"
+    },
+    {
+        "nombre": "Pokémon Zandy Cards Japonés",
+        "link": "Pinball_mini_(Japones).png",
+        "region": "Japón",
+        "año": "2001-12-14"
+    },
+    {
+        "nombre": "Pokémon Puzzle Collection",
+        "link": "Puzzle_Collection_(Europa).png",
+        "region": "Europa",
+        "año": "2002-03-15"
+    },
+    {
+        "nombre": "Pokémon Puzzle Collection Japonés",
+        "link": "Pokemon_Puzzle_Collection_(Japones).jpg",
+        "region": "Japón",
+        "año": "2001-12-14"
+    },
+    {
+        "nombre": "Pokémon Tetris",
+        "link": "Pokemon_Tetris_(Europa).webp",
+        "region": "Europa",
+        "año": "2002-03-15"
+    },
+    {
+        "nombre": "Pokémon Tettris Japonés",
+        "link": "Pokemon_Tetris_(Japones).webp",
+        "region": "Japón",
+        "año": "2002-03-21"
+    },
+    {
+        "nombre": "Pokémon Breeder mini japonés",
+        "link": "Pokemon_Breeder_mini_(Japones).png",
+        "region": "Japón",
+        "año": "2002-03-21"
+    },
+    {
+        "nombre": "Pokémon Puzzle Collection Vol. 2 Japonés",
+        "link": "Puzzle_Collection_Vol_2_(Japones).png",
+        "region": "Japón",
+        "año": "2002-04-26"
+    },
+    {
+        "nombre": "Pokémon Race mini Japonés",
+        "link": "Pokemon_Race_mini_(Japones).png",
+        "region": "Japón",
+        "año": "2002-07-19"
+    },
+    {
+        "nombre": "Pichu Bros. mini Japonés",
+        "link": "Pichu_Bros_mini_(Japones).png",
+        "region": "Japón",
+        "año": "2002-08-09"
+    },
+    {
+        "nombre": "Togepi's Great Adventure Japonés",
+        "link": "Togepi_Great_Adventure_(Japones).png",
+        "region": "Japón",
+        "año": "2002-10-18"
+    },
+    {
+        "nombre": "Pokémon: Catch the Numbers!Japonés",
+        "link": "Pokemon_Catch_the_Numbers_(Japones).jpg",
+        "region": "Japón",
+        "año": "2002-07-23"
+    },
+    {
+        "nombre": "Pokémon Advanced Generation: I've Begun Hiragana and Katakana!",
+        "link": "Ive_Begun_Hiragana_and_Katakana_(Japones).jpg",
+        "region": "Japón",
+        "año": "2003-11-17"
+    }
+    
+    
+]
