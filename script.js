@@ -205,38 +205,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 resetItemsOrder();
                 resetIcon.textContent = jsonOrderAsc ? '▲' : '▼';
             });
+
+            loadCheckboxStates(); // Cargar el estado de los checkboxes después de cargar los datos
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
     }
 
-    function saveData() {
-        const updatedData = data.map(item => ({
-            ...item,
-            selectedJoc: document.querySelector(`#checkbox${item.id}-1`).checked,
-            selectedCaixa: document.querySelector(`#checkbox${item.id}-2`).checked,
-        }));
-
-        fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': apiKey,
-            },
-            body: JSON.stringify(updatedData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Datos guardados correctamente:", data);
-            saveCheckboxStates(); // Guardar el estado después de guardar los datos
-        })
-        .catch(error => {
-            console.error('Error guardando datos:', error);
-        });
-    }
-
-    fetchData().then(() => {
-        loadCheckboxStates(); // Cargar el estado de los checkboxes después de cargar los datos
-    });
+    fetchData();
 });
