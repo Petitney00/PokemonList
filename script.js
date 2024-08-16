@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let originalOrder = []; // Para almacenar el orden original
     
     const apiKey = "$2a$10$WlmHc1qlGSf46Jx6M.i5juRkMQUL3mrt8r5xL33k8pX1pgCMOVomO"; // Reemplaza con tu API Key de JSONbin.io
-    const binId = "66bfbac5acd3cb34a875923f"; // Reemplaza con el ID de tu bin de JSONbin.io
+    const binId = "66bfc423acd3cb34a87594c1"; // Reemplaza con el ID de tu bin de JSONbin.io
 
     function updateProgress() {
         const totalItems = data.length;
