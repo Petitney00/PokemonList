@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let jsonOrderAsc = true; // Indica si el orden del JSON debe ser ascendente o descendente
     let data = [];
     let originalOrder = []; // Para almacenar el orden original
-    
+
     const apiKey = "$2a$10$WlmHc1qlGSf46Jx6M.i5juRkMQUL3mrt8r5xL33k8pX1pgCMOVomO"; // Reemplaza con tu API Key de JSONbin.io
     const binId = "66bfc423acd3cb34a87594c1"; // Reemplaza con el ID de tu bin de JSONbin.io
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             imgContainer.className = 'img-container';
 
             const img = document.createElement('img');
-            img.src = item.link;
+            img.src = item.link; // Asegúrate de que 'item.link' sea el enlace correcto de la imagen
             img.alt = item.nombre;
 
             const labelNombre = document.createElement('label');
@@ -210,14 +210,10 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Datos guardados correctamente:", data);
         })
         .catch(error => {
-            console.error("Error al guardar los datos:", error);
+            console.error('Error guardando datos:', error);
         });
     }
 
+    // Llamar a la función de obtención de datos
     fetchData();
-
-    // Agregar funcionalidad para guardar los datos
-    window.addEventListener('beforeunload', function () {
-        saveData();
-    });
 });
