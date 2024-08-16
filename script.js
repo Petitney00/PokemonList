@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let jsonOrderAsc = true; // Indica si el orden del JSON debe ser ascendente o descendente
     let data = [];
     let originalOrder = []; // Para almacenar el orden original
-
+    
     const apiKey = "$2a$10$WlmHc1qlGSf46Jx6M.i5juRkMQUL3mrt8r5xL33k8pX1pgCMOVomO"; // Reemplaza con tu API Key de JSONbin.io
     const binId = "66bfc423acd3cb34a87594c1"; // Reemplaza con el ID de tu bin de JSONbin.io
 
@@ -41,6 +41,24 @@ document.addEventListener("DOMContentLoaded", function () {
         boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
     }
 
+    function saveCheckboxStates() {
+        const checkboxStates = {};
+        document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
+            checkboxStates[checkbox.id] = checkbox.checked;
+        });
+        localStorage.setItem('checkboxStates', JSON.stringify(checkboxStates));
+    }
+
+    function loadCheckboxStates() {
+        const checkboxStates = JSON.parse(localStorage.getItem('checkboxStates')) || {};
+        document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
+            if (checkboxStates[checkbox.id] !== undefined) {
+                checkbox.checked = checkboxStates[checkbox.id];
+            }
+        });
+        updateProgress(); // Actualiza el progreso después de restaurar el estado
+    }
+
     function renderItems(items) {
         list.innerHTML = '';
         items.forEach((item, index) => {
@@ -51,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             imgContainer.className = 'img-container';
 
             const img = document.createElement('img');
-            img.src = item.link; // Asegúrate de que 'item.link' sea el enlace correcto de la imagen
+            img.src = item.link;
             img.alt = item.nombre;
 
             const labelNombre = document.createElement('label');
@@ -109,7 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Añadir eventos a los checkboxes para actualizar la barra de progreso al hacer clic
         document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
-            checkbox.addEventListener('change', updateProgress);
+            checkbox.addEventListener('change', () => {
+                saveCheckboxStates();
+                updateProgress();
+            });
         });
     }
 
@@ -146,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function fetchData() {
-        fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+        return fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
             method: 'GET',
             headers: {
                 'X-Master-Key': apiKey,
@@ -208,12 +229,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             console.log("Datos guardados correctamente:", data);
+            saveCheckboxStates(); // Guardar el estado después de guardar los datos
         })
         .catch(error => {
             console.error('Error guardando datos:', error);
         });
     }
 
-    // Llamar a la función de obtención de datos
-    fetchData();
+    fetchData().then(() => {
+        loadCheckboxStates(); // Cargar el estado de los checkboxes después de cargar los datos
+    });
 });
