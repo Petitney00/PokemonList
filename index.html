@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Elementos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        .progress-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: right;
+        }
+        .progress-label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .progress-bar {
+            width: 200px;
+            background-color: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .progress-bar-inner {
+            height: 20px;
+            background-color: #4CAF50;
+            text-align: right;
+            padding-right: 5px;
+            line-height: 20px;
+            color: white;
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+        .switch-container {
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 10px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .switch-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .item input[type="text"] {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .item .img-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .item img {
+            width: auto;
+            height: 200px;
+            border-radius: 4px;
+        }
+        .item label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .item .year {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .item input[type="checkbox"] {
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+        .item input[type="checkbox"].joc {
+            accent-color: green;
+        }
+        .item input[type="checkbox"].caixa {
+            accent-color: blue;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sort-button, .reset-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            gap: 5px;
+        }
+        .sort-button:hover, .reset-button:hover {
+            background-color: #45a049;
+        }
+        .save-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    gap: 5px;
+}
+.save-button:hover {
+    background-color: #0b79d0;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Lista de Elementos</h1>
+
+    <div class="controls">
+        <button class="save-button" id="saveButton">Guardar datos</button>
+
+        <div class="switch-container">
+            <label class="switch">
+                <input type="checkbox" id="filterJapan">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">Amagar japonesos</span>
+        </div>
+        <div class="switch-container">
+            <label class="switch">
+                <input type="checkbox" id="filterEurope">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">Amagar europeus</span>
+        </div>
+        <button class="sort-button" id="sortButton">
+            Ordenar por fecha <span id="sortIcon">▲</span>
+        </button>
+        <button class="reset-button" id="resetButton">
+            Ordenar por JSON <span id="resetIcon">▲</span>
+        </button>
+    </div>
+
+    <div class="progress-container">
+        <div>
+            <div class="progress-label">Jocs: <span id="selectedGamesCount">0</span>/<span id="totalGamesCount">0</span></div>
+            <div class="progress-bar">
+                <div id="gamesProgressBar" class="progress-bar-inner" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div>
+            <div class="progress-label">Caixes: <span id="selectedBoxesCount">0</span>/<span id="totalBoxesCount">0</span></div>
+            <div class="progress-bar">
+                <div id="boxesProgressBar" class="progress-bar-inner" style="width: 0%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container" id="list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const list = document.getElementById('list');
+            const filterJapanCheckbox = document.getElementById('filterJapan');
+            const filterEuropeCheckbox = document.getElementById('filterEurope');
+            const sortButton = document.getElementById('sortButton');
+            const sortIcon = document.getElementById('sortIcon');
+            const resetButton = document.getElementById('resetButton');
+            const resetIcon = document.getElementById('resetIcon');
+            const selectedGamesCount = document.getElementById('selectedGamesCount');
+            const totalGamesCount = document.getElementById('totalGamesCount');
+            const gamesProgressBar = document.getElementById('gamesProgressBar');
+            const selectedBoxesCount = document.getElementById('selectedBoxesCount');
+            const totalBoxesCount = document.getElementById('totalBoxesCount');
+            const boxesProgressBar = document.getElementById('boxesProgressBar');
+            let sortAsc = true; // Indica si se debe ordenar ascendente o descendente
+            let jsonOrderAsc = true; // Indica si el orden del JSON debe ser ascendente o descendente
+            let data = [];
+            let originalOrder = []; // Para almacenar el orden original
+
+            function updateProgress() {
+    const totalItems = data.length;
+    const selectedGames = document.querySelectorAll('.joc:checked').length;
+    const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
+
+    selectedGamesCount.textContent = selectedGames;
+    totalGamesCount.textContent = totalItems;
+    selectedBoxesCount.textContent = selectedBoxes;
+    totalBoxesCount.textContent = totalItems;
+
+    const gamesProgressPercent = (selectedGames / totalItems) * 100;
+    const boxesProgressPercent = (selectedBoxes / totalItems) * 100;
+
+    gamesProgressBar.style.width = `${gamesProgressPercent}%`;
+    boxesProgressBar.style.width = `${boxesProgressPercent}%`;
+
+    // Ocultar la barra si está en 0%
+    gamesProgressBar.style.visibility = gamesProgressPercent === 0 ? 'hidden' : 'visible';
+    boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
+}
+
+
+            function renderItems(items) {
+                list.innerHTML = '';
+                items.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'item';
+
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'img-container';
+
+                    const img = document.createElement('img');
+                    img.src = item.link;
+                    img.alt = item.nombre;
+
+                    const labelNombre = document.createElement('label');
+                    labelNombre.textContent = item.nombre;
+
+                    const yearLabel = document.createElement('div');
+                    yearLabel.className = 'year';
+                    yearLabel.textContent = `Año: ${item.año}`;
+
+                    const inputText = document.createElement('input');
+                    inputText.type = 'text';
+                    inputText.id = `text${index + 1}`;
+                    inputText.name = `text${index + 1}`;
+
+                    const checkboxContainer = document.createElement('div');
+                    checkboxContainer.className = 'checkbox-container';
+
+                    const checkbox1 = document.createElement('input');
+                    checkbox1.type = 'checkbox';
+                    checkbox1.id = `checkbox${index + 1}-1`;
+                    checkbox1.name = `checkbox${index + 1}-1`;
+                    checkbox1.className = 'joc';
+
+                    const labelCheckbox1 = document.createElement('label');
+                    labelCheckbox1.textContent = 'Joc';
+                    labelCheckbox1.htmlFor = checkbox1.id;
+
+                    const checkbox2 = document.createElement('input');
+                    checkbox2.type = 'checkbox';
+                    checkbox2.id = `checkbox${index + 1}-2`;
+                    checkbox2.name = `checkbox${index + 1}-2`;
+                    checkbox2.className = 'caixa';
+
+                    const labelCheckbox2 = document.createElement('label');
+                    labelCheckbox2.textContent = 'Caixa';
+                    labelCheckbox2.htmlFor = checkbox2.id;
+
+                    imgContainer.appendChild(img);
+                    div.appendChild(imgContainer);
+                    div.appendChild(labelNombre);
+                    div.appendChild(yearLabel);
+                    div.appendChild(inputText);
+
+                    checkboxContainer.appendChild(checkbox1);
+                    checkboxContainer.appendChild(labelCheckbox1);
+                    checkboxContainer.appendChild(checkbox2);
+                    checkboxContainer.appendChild(labelCheckbox2);
+
+                    div.appendChild(checkboxContainer);
+                    list.appendChild(div);
+                });
+
+                // Actualizar barra de progreso después de renderizar
+                updateProgress();
+
+                // Añadir eventos a los checkboxes para actualizar la barra de progreso al hacer clic
+                document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
+                    checkbox.addEventListener('change', updateProgress);
+                });
+            }
+
+            function sortItemsByDate(items) {
+                return items.sort((a, b) => {
+                    const dateA = new Date(a.año);
+                    const dateB = new Date(b.año);
+                    return sortAsc ? dateA - dateB : dateB - dateA;
+                });
+            }
+
+            function resetItemsOrder() {
+                // Alterna entre el orden original y el orden inverso del JSON
+                let orderedItems = jsonOrderAsc ? originalOrder : originalOrder.slice().reverse();
+                jsonOrderAsc = !jsonOrderAsc;
+
+                // Aplicar filtros sobre el ordenado
+                let filteredItems = applyFilters(orderedItems);
+                renderItems(filteredItems);
+            }
+
+            function applyFilters(items = data) {
+                let filteredData = items;
+
+                if (filterJapanCheckbox.checked) {
+                    filteredData = filteredData.filter(item => item.region !== 'Japón');
+                }
+
+                if (filterEuropeCheckbox.checked) {
+                    filteredData = filteredData.filter(item => item.region !== 'Europa');
+                }
+
+                return filteredData;
+            }
+
+            function fetchData() {
+                fetch('data.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(jsonData => {
+                        data = jsonData;
+                        originalOrder = [...data]; // Guardar el orden original del JSON
+                        let filteredData = applyFilters(data);
+                        renderItems(filteredData); // Inicial render
+
+                        // Filtro por región
+                        filterJapanCheckbox.addEventListener('change', function () {
+                            renderItems(applyFilters(originalOrder));
+                        });
+                        filterEuropeCheckbox.addEventListener('change', function () {
+                            renderItems(applyFilters(originalOrder));
+                        });
+
+                        // Ordenar por fecha
+                        sortButton.addEventListener('click', function () {
+                            sortAsc = !sortAsc;
+                            renderItems(sortItemsByDate(applyFilters(originalOrder)));
+                            sortIcon.textContent = sortAsc ? '▲' : '▼';
+                        });
+
+                        // Resetear a orden del JSON (y alternar entre ascendente/descendente)
+                        resetButton.addEventListener('click', function () {
+                            resetItemsOrder();
+                            resetIcon.textContent = jsonOrderAsc ? '▲' : '▼';
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            }
+
+            fetchData();
+        });
+    </script>
+</body>
+</html>
