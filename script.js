@@ -12,16 +12,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedBoxesCount = document.getElementById('selectedBoxesCount');
     const totalBoxesCount = document.getElementById('totalBoxesCount');
     const boxesProgressBar = document.getElementById('boxesProgressBar');
-    let sortAsc = true; // Indica si se debe ordenar ascendente o descendente
-    let jsonOrderAsc = true; // Indica si el orden del JSON debe ser ascendente o descendente
+    let sortAsc = true;
+    let jsonOrderAsc = true;
     let data = [];
-    let originalOrder = []; // Para almacenar el orden original
-    
-    const apiKey = "$2a$10$WlmHc1qlGSf46Jx6M.i5juRkMQUL3mrt8r5xL33k8pX1pgCMOVomO"; // Reemplaza con tu API Key de JSONbin.io
-    const binId = "66bfc423acd3cb34a87594c1"; // Reemplaza con el ID de tu bin de JSONbin.io
+    let originalOrder = [];
+    let checkboxStates = {};
+    let textBoxValues = {}; // Agregado para almacenar valores de los campos de texto
 
-    function updateProgress() {
-        const totalItems = data.length;
+    const apiKey = "$2a$10$WlmHc1qlGSf46Jx6M.i5juRkMQUL3mrt8r5xL33k8pX1pgCMOVomO";
+    const binId = "66bfc423acd3cb34a87594c1";
+
+    function updateProgress(items) {
+        const totalItems = items.length;
         const selectedGames = document.querySelectorAll('.joc:checked').length;
         const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
 
@@ -30,38 +32,50 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedBoxesCount.textContent = selectedBoxes;
         totalBoxesCount.textContent = totalItems;
 
-        const gamesProgressPercent = (selectedGames / totalItems) * 100;
-        const boxesProgressPercent = (selectedBoxes / totalItems) * 100;
+        const gamesProgressPercent = totalItems > 0 ? (selectedGames / totalItems) * 100 : 0;
+        const boxesProgressPercent = totalItems > 0 ? (selectedBoxes / totalItems) * 100 : 0;
 
         gamesProgressBar.style.width = `${gamesProgressPercent}%`;
         boxesProgressBar.style.width = `${boxesProgressPercent}%`;
 
-        // Ocultar la barra si está en 0%
         gamesProgressBar.style.visibility = gamesProgressPercent === 0 ? 'hidden' : 'visible';
         boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
     }
 
     function saveCheckboxStates() {
-        const checkboxStates = {};
         document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
-            checkboxStates[checkbox.id] = checkbox.checked;
+            checkboxStates[checkbox.dataset.itemId] = checkbox.checked;
         });
+
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            textBoxValues[input.dataset.itemId] = input.value;
+        });
+
         localStorage.setItem('checkboxStates', JSON.stringify(checkboxStates));
+        localStorage.setItem('textBoxValues', JSON.stringify(textBoxValues));
     }
 
     function loadCheckboxStates() {
-        const checkboxStates = JSON.parse(localStorage.getItem('checkboxStates')) || {};
+        const savedCheckboxStates = JSON.parse(localStorage.getItem('checkboxStates')) || {};
+        checkboxStates = savedCheckboxStates;
+
+        const savedTextBoxValues = JSON.parse(localStorage.getItem('textBoxValues')) || {};
+        textBoxValues = savedTextBoxValues;
+
         document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
-            if (checkboxStates[checkbox.id] !== undefined) {
-                checkbox.checked = checkboxStates[checkbox.id];
-            }
+            checkbox.checked = checkboxStates[checkbox.dataset.itemId] || false;
         });
-        updateProgress(); // Actualiza el progreso después de restaurar el estado
+
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.value = textBoxValues[input.dataset.itemId] || '';
+        });
+
+        updateProgress(applyFilters(originalOrder)); // Actualizar progreso con los elementos filtrados
     }
 
     function renderItems(items) {
         list.innerHTML = '';
-        items.forEach((item, index) => {
+        items.forEach((item) => {
             const div = document.createElement('div');
             div.className = 'item';
 
@@ -81,17 +95,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const inputText = document.createElement('input');
             inputText.type = 'text';
-            inputText.id = `text${index + 1}`;
-            inputText.name = `text${index + 1}`;
+            inputText.id = `text-${item.link}`;
+            inputText.name = `text-${item.link}`;
+            inputText.dataset.itemId = item.link; // Usar el link de la imagen como ID
 
             const checkboxContainer = document.createElement('div');
             checkboxContainer.className = 'checkbox-container';
 
             const checkbox1 = document.createElement('input');
             checkbox1.type = 'checkbox';
-            checkbox1.id = `checkbox${index + 1}-1`;
-            checkbox1.name = `checkbox${index + 1}-1`;
             checkbox1.className = 'joc';
+            checkbox1.dataset.itemId = item.link+"_"+checkbox1.className; // Usar el link de la imagen como ID
 
             const labelCheckbox1 = document.createElement('label');
             labelCheckbox1.textContent = 'Joc';
@@ -99,9 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const checkbox2 = document.createElement('input');
             checkbox2.type = 'checkbox';
-            checkbox2.id = `checkbox${index + 1}-2`;
-            checkbox2.name = `checkbox${index + 1}-2`;
             checkbox2.className = 'caixa';
+            checkbox2.dataset.itemId = item.link+"_"+checkbox2.className; // Usar el link de la imagen como ID
 
             const labelCheckbox2 = document.createElement('label');
             labelCheckbox2.textContent = 'Caixa';
@@ -122,16 +135,22 @@ document.addEventListener("DOMContentLoaded", function () {
             list.appendChild(div);
         });
 
-        // Actualizar barra de progreso después de renderizar
-        updateProgress();
-
-        // Añadir eventos a los checkboxes para actualizar la barra de progreso al hacer clic
         document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
+            checkbox.checked = checkboxStates[checkbox.dataset.itemId] || false;
             checkbox.addEventListener('change', () => {
                 saveCheckboxStates();
-                updateProgress();
+                updateProgress(applyFilters(originalOrder)); // Actualizar progreso con los elementos filtrados
             });
         });
+
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.value = textBoxValues[input.dataset.itemId] || '';
+            input.addEventListener('input', () => {
+                saveCheckboxStates();
+            });
+        });
+
+        updateProgress(items); // Actualizar progreso con los elementos visibles
     }
 
     function sortItemsByDate(items) {
@@ -143,11 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function resetItemsOrder() {
-        // Alterna entre el orden original y el orden inverso del JSON
         let orderedItems = jsonOrderAsc ? originalOrder : originalOrder.slice().reverse();
         jsonOrderAsc = !jsonOrderAsc;
 
-        // Aplicar filtros sobre el ordenado
         let filteredItems = applyFilters(orderedItems);
         renderItems(filteredItems);
     }
@@ -180,33 +197,33 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
         })
         .then(jsonData => {
-            data = jsonData.record; // Acceder al contenido del bin
-            originalOrder = [...data]; // Guardar el orden original del JSON
+            data = jsonData.record;
+            originalOrder = [...data];
             let filteredData = applyFilters(data);
-            renderItems(filteredData); // Inicial render
+            renderItems(filteredData);
 
-            // Filtro por región
             filterJapanCheckbox.addEventListener('change', function () {
-                renderItems(applyFilters(originalOrder));
+                let filteredData = applyFilters(originalOrder);
+                renderItems(filteredData);
             });
             filterEuropeCheckbox.addEventListener('change', function () {
-                renderItems(applyFilters(originalOrder));
+                let filteredData = applyFilters(originalOrder);
+                renderItems(filteredData);
             });
 
-            // Ordenar por fecha
             sortButton.addEventListener('click', function () {
                 sortAsc = !sortAsc;
-                renderItems(sortItemsByDate(applyFilters(originalOrder)));
+                let sortedData = sortItemsByDate(applyFilters(originalOrder));
+                renderItems(sortedData);
                 sortIcon.textContent = sortAsc ? '▲' : '▼';
             });
 
-            // Resetear a orden del JSON (y alternar entre ascendente/descendente)
             resetButton.addEventListener('click', function () {
                 resetItemsOrder();
                 resetIcon.textContent = jsonOrderAsc ? '▲' : '▼';
             });
 
-            loadCheckboxStates(); // Cargar el estado de los checkboxes después de cargar los datos
+            loadCheckboxStates(); // Cargar el estado de los checkboxes y campos de texto después de cargar los datos
         })
         .catch(error => {
             console.error('Error fetching data:', error);

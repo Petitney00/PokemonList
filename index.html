@@ -15,11 +15,11 @@
         h1 {
             text-align: center;
             color: #4CAF50;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .controls {
             display: flex;
-            justify-content: center;
+            flex-direction: row; /* Cambiado a row */
             align-items: center;
             margin-bottom: 20px;
             gap: 20px;
@@ -57,6 +57,7 @@
         .switch-container {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         .switch {
             position: relative;
@@ -116,7 +117,7 @@
             border: 1px solid #ddd;
         }
         .item input[type="text"] {
-            width: 90%;
+            width: 100%;
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -172,6 +173,46 @@
         }
         .sort-button:hover, .reset-button:hover {
             background-color: #45a049;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .progress-container {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .controls {
+                flex-direction: column; /* Cambiado a column en pantallas pequeñas */
+                gap: 10px;
+            }
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            .item img {
+                height: 150px;
+            }
+            .sort-button, .reset-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .item input[type="text"] {
+                width: 100%;
+            }
+            .item img {
+                height: 120px;
+            }
+            .sort-button, .reset-button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .controls {
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -239,175 +280,118 @@
             let data = [];
             let originalOrder = []; // Para almacenar el orden original
 
-            function updateProgress() {
-                const totalItems = data.length;
-                const selectedGames = document.querySelectorAll('.joc:checked').length;
-                const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
-
-                selectedGamesCount.textContent = selectedGames;
-                totalGamesCount.textContent = totalItems;
-                selectedBoxesCount.textContent = selectedBoxes;
-                totalBoxesCount.textContent = totalItems;
-
-                const gamesProgressPercent = (selectedGames / totalItems) * 100;
-                const boxesProgressPercent = (selectedBoxes / totalItems) * 100;
-
-                gamesProgressBar.style.width = `${gamesProgressPercent}%`;
-                boxesProgressBar.style.width = `${boxesProgressPercent}%`;
-
-                // Ocultar la barra si está en 0%
-                gamesProgressBar.style.visibility = gamesProgressPercent === 0 ? 'hidden' : 'visible';
-                boxesProgressBar.style.visibility = boxesProgressPercent === 0 ? 'hidden' : 'visible';
-            }
-
-            function saveCheckboxState() {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(checkbox => {
-                    localStorage.setItem(checkbox.id, checkbox.checked);
+            fetch('data.json')
+                .then(response => response.json())
+                .then(jsonData => {
+                    data = jsonData;
+                    originalOrder = [...data];
+                    displayData(data);
+                    updateCountersAndProgressBars();
                 });
-            }
 
-            function loadCheckboxState() {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(checkbox => {
-                    const savedState = localStorage.getItem(checkbox.id);
-                    if (savedState !== null) {
-                        checkbox.checked = JSON.parse(savedState);
-                    }
-                });
-                updateProgress(); // Asegúrate de actualizar el progreso al cargar el estado
-            }
-
-            function renderItems(items) {
+            function displayData(filteredData) {
                 list.innerHTML = '';
-                items.forEach((item, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'item';
+
+                filteredData.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item';
+
+                    const nameInput = document.createElement('input');
+                    nameInput.type = 'text';
+                    nameInput.value = item.nom;
 
                     const imgContainer = document.createElement('div');
                     imgContainer.className = 'img-container';
-
                     const img = document.createElement('img');
-                    img.src = item.link;
-                    img.alt = item.nombre;
-
-                    const labelNombre = document.createElement('label');
-                    labelNombre.textContent = item.nombre;
+                    img.src = item.img || 'https://via.placeholder.com/300x200.png?text=No+Image';
+                    img.alt = item.nom;
+                    imgContainer.appendChild(img);
 
                     const yearLabel = document.createElement('div');
                     yearLabel.className = 'year';
-                    yearLabel.textContent = `Año: ${item.año}`;
+                    yearLabel.textContent = `Any: ${item.any}`;
 
-                    const inputText = document.createElement('input');
-                    inputText.type = 'text';
-                    inputText.id = `text${index + 1}`;
-                    inputText.name = `text${index + 1}`;
+                    const jocCheckbox = document.createElement('input');
+                    jocCheckbox.type = 'checkbox';
+                    jocCheckbox.className = 'joc';
+                    jocCheckbox.checked = item.joc;
+                    jocCheckbox.addEventListener('change', updateCountersAndProgressBars);
+
+                    const caixaCheckbox = document.createElement('input');
+                    caixaCheckbox.type = 'checkbox';
+                    caixaCheckbox.className = 'caixa';
+                    caixaCheckbox.checked = item.caixa;
+                    caixaCheckbox.addEventListener('change', updateCountersAndProgressBars);
 
                     const checkboxContainer = document.createElement('div');
                     checkboxContainer.className = 'checkbox-container';
 
-                    const checkbox1 = document.createElement('input');
-                    checkbox1.type = 'checkbox';
-                    checkbox1.id = `checkbox${index + 1}-1`;
-                    checkbox1.name = `checkbox${index + 1}-1`;
-                    checkbox1.className = 'joc';
+                    const jocLabel = document.createElement('label');
+                    jocLabel.textContent = 'Joc';
+                    checkboxContainer.appendChild(jocCheckbox);
+                    checkboxContainer.appendChild(jocLabel);
 
-                    const labelCheckbox1 = document.createElement('label');
-                    labelCheckbox1.textContent = 'Joc';
-                    labelCheckbox1.htmlFor = checkbox1.id;
+                    const caixaLabel = document.createElement('label');
+                    caixaLabel.textContent = 'Caixa';
+                    checkboxContainer.appendChild(caixaCheckbox);
+                    checkboxContainer.appendChild(caixaLabel);
 
-                    const checkbox2 = document.createElement('input');
-                    checkbox2.type = 'checkbox';
-                    checkbox2.id = `checkbox${index + 1}-2`;
-                    checkbox2.name = `checkbox${index + 1}-2`;
-                    checkbox2.className = 'caixa';
+                    itemDiv.appendChild(nameInput);
+                    itemDiv.appendChild(imgContainer);
+                    itemDiv.appendChild(yearLabel);
+                    itemDiv.appendChild(checkboxContainer);
 
-                    const labelCheckbox2 = document.createElement('label');
-                    labelCheckbox2.textContent = 'Caixa';
-                    labelCheckbox2.htmlFor = checkbox2.id;
-
-                    imgContainer.appendChild(img);
-                    div.appendChild(imgContainer);
-                    div.appendChild(labelNombre);
-                    div.appendChild(yearLabel);
-                    div.appendChild(inputText);
-
-                    checkboxContainer.appendChild(checkbox1);
-                    checkboxContainer.appendChild(labelCheckbox1);
-                    checkboxContainer.appendChild(checkbox2);
-                    checkboxContainer.appendChild(labelCheckbox2);
-
-                    div.appendChild(checkboxContainer);
-                    list.appendChild(div);
+                    list.appendChild(itemDiv);
                 });
-
-                // Actualizar barra de progreso después de renderizar
-                updateProgress();
-
-                // Añadir eventos a los checkboxes para actualizar la barra de progreso al hacer clic
-                document.querySelectorAll('.joc, .caixa').forEach(checkbox => {
-                    checkbox.addEventListener('change', () => {
-                        saveCheckboxState();
-                        updateProgress();
-                    });
-                });
-            }
-
-            function fetchData() {
-                fetch('https://api.jsonbin.io/b/66bfc423acd3cb34a87594c1') // URL del bin de JSONbin.io
-                    .then(response => response.json())
-                    .then(dataFromAPI => {
-                        data = dataFromAPI;
-                        originalOrder = [...data];
-                        renderItems(data);
-                    });
-            }
-
-            function applyFilters() {
-                const filteredData = data.filter(item => {
-                    if (filterJapanCheckbox.checked && item.region === 'Japón') {
-                        return false;
-                    }
-                    if (filterEuropeCheckbox.checked && item.region === 'Europa') {
-                        return false;
-                    }
-                    return true;
-                });
-                renderItems(filteredData);
-            }
-
-            function sortItems() {
-                if (sortAsc) {
-                    data.sort((a, b) => new Date(a.año) - new Date(b.año));
-                    sortIcon.textContent = '▲'; // Orden ascendente
-                } else {
-                    data.sort((a, b) => new Date(b.año) - new Date(a.año));
-                    sortIcon.textContent = '▼'; // Orden descendente
-                }
-                renderItems(data);
-                sortAsc = !sortAsc;
-            }
-
-            function resetSorting() {
-                data = [...originalOrder];
-                jsonOrderAsc = !jsonOrderAsc;
-                renderItems(data);
-                resetIcon.textContent = jsonOrderAsc ? '▲' : '▼'; // Orden ascendente o descendente
             }
 
             filterJapanCheckbox.addEventListener('change', applyFilters);
             filterEuropeCheckbox.addEventListener('change', applyFilters);
-            sortButton.addEventListener('click', sortItems);
-            resetButton.addEventListener('click', resetSorting);
 
-            document.addEventListener('change', function (event) {
-                if (event.target.type === 'checkbox') {
-                    saveCheckboxState();
+            function applyFilters() {
+                let filteredData = data;
+
+                if (filterJapanCheckbox.checked) {
+                    filteredData = filteredData.filter(item => item.japo !== true);
                 }
+
+                if (filterEuropeCheckbox.checked) {
+                    filteredData = filteredData.filter(item => item.euro !== true);
+                }
+
+                displayData(filteredData);
+            }
+
+            sortButton.addEventListener('click', function () {
+                data.sort((a, b) => {
+                    const dateA = new Date(a.any);
+                    const dateB = new Date(b.any);
+                    return sortAsc ? dateA - dateB : dateB - dateA;
+                });
+                sortAsc = !sortAsc;
+                sortIcon.textContent = sortAsc ? '▲' : '▼';
+                displayData(data);
             });
 
-            loadCheckboxState();
-            fetchData();
+            resetButton.addEventListener('click', function () {
+                originalOrder = originalOrder.reverse(); 
+                displayData(originalOrder);
+            });
+
+            function updateCountersAndProgressBars() {
+                const totalGames = data.length;
+                const totalBoxes = data.length;
+                const selectedGames = document.querySelectorAll('.joc:checked').length;
+                const selectedBoxes = document.querySelectorAll('.caixa:checked').length;
+
+                selectedGamesCount.textContent = selectedGames;
+                totalGamesCount.textContent = totalGames;
+                selectedBoxesCount.textContent = selectedBoxes;
+                totalBoxesCount.textContent = totalBoxes;
+
+                gamesProgressBar.style.width = `${(selectedGames / totalGames) * 100}%`;
+                boxesProgressBar.style.width = `${(selectedBoxes / totalBoxes) * 100}%`;
+            }
         });
     </script>
 </body>
